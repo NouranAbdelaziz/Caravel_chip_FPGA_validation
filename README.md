@@ -3,6 +3,7 @@
 The goal of this repository is to validate the caravel chip using FPGA. Caravel is a template chip used in google free shuttles. You can read more about it [here](https://github.com/efabless/caravel). 
 
 The FPGA used is Cmod Artix 7-35T 
+![cmod_a7](https://user-images.githubusercontent.com/79912650/193458455-6ed313b3-190f-4531-bcfa-35cff91bb603.jpg)
 
 Before programming the FPGA with the whole caravel chip, we started by implementing the management SoC alone. The management SoC contains VexRiscv core and several peripherals like gpio, uart, spi, and timer. It is used to run firmware to read and write in different registers and configure gpio pins of the caravel chip.
 
