@@ -44,6 +44,12 @@ module mgmt_soc_hk (
     // GPIO (one pin)
     inout wire gpio_inout_pad,	// Connect to gpio pad
 
+    input wire [4:0] mgmt_io_in,
+    output wire [1:0] mgmt_io_out,
+
+    output wire csb,
+    output wire sck,
+    output wire sdi,
 
     // Flash memory control (SPI master)
     output wire flash_csb,
@@ -55,6 +61,12 @@ module mgmt_soc_hk (
     inout wire flash_io3_dio
   
 );
+    // housekeeping spi loopback 
+
+    assign sck = mgmt_io_in [4];
+    assign csb = mgmt_io_in [3];
+    assign sdi = mgmt_io_in [2];
+
 
     wire gpio_out_pad;	// Connect to out on gpio pad
     wire  gpio_in_pad;		// Connect to in on gpio pad
@@ -311,6 +323,8 @@ mgmt_core_wrapper soc (
 
         .irq(),
         .reset(),
+    .mgmt_gpio_in(mgmt_io_in),
+	.mgmt_gpio_out(mgmt_io_out[1:0]),
     /*
         .serial_clock(mprj_io_loader_clock),
         .serial_load(mprj_io_loader_strobe),
