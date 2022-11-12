@@ -9,22 +9,14 @@ Before programming the FPGA with the whole caravel chip, we started by implement
 In order for the management SoC to read the program from the flash, the flash needs first to be programmed. This can be done by having a flash writer slave which talks to the flash and program it. For the flash writer to do this, it needs a master. The master used here is a uart master which receives commands from PC and program the flash writer which will eventually  program the flash. The uart master and flash writer modules rtl code was based on [this](https://github.com/shalan/SoCBUS ) repository.  The python script used to program the uart master is based on [this](https://github.com/nabadawy/Chameleon_SoC_with-SST26VF080A-flash-/tree/main) repository. You can find an explanation of the commands used to program the flash. 
 
 ## Tools used in FPGA validation for the management SoC:
+![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/79912650/201472822-8a278966-c80b-4a12-a84a-ba6f0bad51df.png)
+
 
 ### 1. Cmod Artix 7-35T:
-![Cmod_A7-obl](https://user-images.githubusercontent.com/79912650/201470157-89d5a9c8-5a3e-4961-8837-c0be7c9ac455.jpg)
-
-
 ### 2. QSPI SST26VF080A Flash module:
-
-
 ### 3. USB-TTL module:
-![usb-ttl](https://user-images.githubusercontent.com/79912650/201466506-2fa9b794-09ef-4e94-9dda-6646e44e70cb.jpg)
-
 ### 4. Analog Discovery kit (optional for debugging):
-![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
-
 ### 5. Jumper wires for connecting:
-![1](https://user-images.githubusercontent.com/79912650/201468548-0b3114d9-13af-4b55-bf54-76b0bf3754de.jpg)
 
 
 ## Steps of FPGA validation for the management SoC (gpio toggling test):
@@ -41,31 +33,21 @@ After validating the management SoC alone, we integrated the housekeeping with t
 The housekeeping contains a "front door" SPI interface connected to the padframe through GPIO pins 1 to 4, and a "back door" wishbone interface connected to the management SoC. The test that is provided in this repo is to read the manufacturer ID register using the housekeeping SPI interface. Manufacturer ID is a fixed ID number hardcoded in the Caravel chip and has a value of 0x456. In order to read or write to housekeeping SPI slave, we need a master which will talk to the slave. The master used here is the SPI peripheral of a  Raspberry Pi Pico microcontroller. 
 
 ## Software tools used in FPGA validation for the management SoC with the housekeeping:
+![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/79912650/201472941-6656a9e5-51a8-4a4f-bdf5-b34eaa2d0907.png)
+
 ### 1. Xilinx Vivado for synthesizing, implementing, and generating the bit stream of the RTL design:
-![Xilinx_image](https://user-images.githubusercontent.com/79912650/201468754-9fc805a1-e5a4-401c-94af-5e3fe488ef16.jpg)
-
 ### 2. Digilent Adept for programming the FPGA with the bit file:
-![image (1)](https://user-images.githubusercontent.com/79912650/201468028-df1686cf-06f7-45bb-8d2d-2987a8f261fd.png)
-
 ### 3. Thonny Python IDE which ease programming the Raspberry Pi Pico with the micropython code:
-![Thonny_logo](https://user-images.githubusercontent.com/79912650/201468053-660b531c-7143-44c5-ac6a-1804a08632aa.png)
-
 ### 4. Digilent Waveforms for using the analog discovery kit logic analyzer:
-![image](https://user-images.githubusercontent.com/79912650/201467981-e6647c4f-5c78-41ef-a074-34cb006c1880.png)
-
 
 ## Hardware tools used in FPGA validation for the management SoC with the housekeeping:
-### 1. Cmod Artix 7-35T:
-![Cmod_A7-obl](https://user-images.githubusercontent.com/79912650/201470157-89d5a9c8-5a3e-4961-8837-c0be7c9ac455.jpg)
+![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/79912650/201472853-d9bd0abd-edc6-47fb-a49e-728dd564f366.png)
 
-### 2. Raspberry Pi Pico: 
-![rpi_pico](https://user-images.githubusercontent.com/79912650/201468712-c5714cd7-52a6-4672-bab0-13bfda7032e1.jpg)
+### 1. Cmod Artix 7-35T
+### 2. Raspberry Pi Pico
+### 3. Analog Discovery kit (optional for debugging)
+### 4. Jumper wires for connecting
 
-### 3. Analog Discovery kit (optional for debugging):
-![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
-
-### 4. Jumper wires for connecting:
-![1](https://user-images.githubusercontent.com/79912650/201468548-0b3114d9-13af-4b55-bf54-76b0bf3754de.jpg)
 
 ## Steps of FPGA validation for the management SoC with the housekeeping (reading the manufacturer ID test):
 
