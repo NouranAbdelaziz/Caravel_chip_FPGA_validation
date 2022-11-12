@@ -9,15 +9,13 @@ Before programming the FPGA with the whole caravel chip, we started by implement
 In order for the management SoC to read the program from the flash, the flash needs first to be programmed. This can be done by having a flash writer slave which talks to the flash and program it. For the flash writer to do this, it needs a master. The master used here is a uart master which receives commands from PC and program the flash writer which will eventually  program the flash. The uart master and flash writer modules rtl code was based on [this](https://github.com/shalan/SoCBUS ) repository.  The python script used to program the uart master is based on [this](https://github.com/nabadawy/Chameleon_SoC_with-SST26VF080A-flash-/tree/main) repository. You can find an explanation of the commands used to program the flash. 
 
 ## Tools used in FPGA validation for the management SoC:
+1. Cmod Artix 7-35T
+2. QSPI SST26VF080A Flash module
+3. USB-TTL module
+4. Analog Discovery kit (optional for debugging)
+5. Jumper wires for connecting
+
 ![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/79912650/201472822-8a278966-c80b-4a12-a84a-ba6f0bad51df.png)
-
-
-### 1. Cmod Artix 7-35T:
-### 2. QSPI SST26VF080A Flash module:
-### 3. USB-TTL module:
-### 4. Analog Discovery kit (optional for debugging):
-### 5. Jumper wires for connecting:
-
 
 ## Steps of FPGA validation for the management SoC (gpio toggling test):
 
@@ -33,20 +31,23 @@ After validating the management SoC alone, we integrated the housekeeping with t
 The housekeeping contains a "front door" SPI interface connected to the padframe through GPIO pins 1 to 4, and a "back door" wishbone interface connected to the management SoC. The test that is provided in this repo is to read the manufacturer ID register using the housekeeping SPI interface. Manufacturer ID is a fixed ID number hardcoded in the Caravel chip and has a value of 0x456. In order to read or write to housekeeping SPI slave, we need a master which will talk to the slave. The master used here is the SPI peripheral of a  Raspberry Pi Pico microcontroller. 
 
 ## Software tools used in FPGA validation for the management SoC with the housekeeping:
+
+1. Xilinx Vivado for synthesizing, implementing, and generating the bit stream of the RTL design
+2. Digilent Adept for programming the FPGA with the bit file
+3. Thonny Python IDE which ease programming the Raspberry Pi Pico with the micropython code
+4. Digilent Waveforms for using the analog discovery kit logic analyzer
+
 ![Untitled Diagram-Page-3 drawio](https://user-images.githubusercontent.com/79912650/201472941-6656a9e5-51a8-4a4f-bdf5-b34eaa2d0907.png)
 
-### 1. Xilinx Vivado for synthesizing, implementing, and generating the bit stream of the RTL design:
-### 2. Digilent Adept for programming the FPGA with the bit file:
-### 3. Thonny Python IDE which ease programming the Raspberry Pi Pico with the micropython code:
-### 4. Digilent Waveforms for using the analog discovery kit logic analyzer:
 
 ## Hardware tools used in FPGA validation for the management SoC with the housekeeping:
-![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/79912650/201472853-d9bd0abd-edc6-47fb-a49e-728dd564f366.png)
 
-### 1. Cmod Artix 7-35T
-### 2. Raspberry Pi Pico
-### 3. Analog Discovery kit (optional for debugging)
-### 4. Jumper wires for connecting
+1. Cmod Artix 7-35T
+2. Raspberry Pi Pico
+3. Analog Discovery kit (optional for debugging)
+4. Jumper wires for connecting
+
+![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/79912650/201472853-d9bd0abd-edc6-47fb-a49e-728dd564f366.png)
 
 
 ## Steps of FPGA validation for the management SoC with the housekeeping (reading the manufacturer ID test):
