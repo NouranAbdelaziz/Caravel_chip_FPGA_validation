@@ -10,19 +10,19 @@ In order for the management SoC to read the program from the flash, the flash ne
 
 ## Tools used in FPGA validation for the management SoC:
 
-1. ### Cmod Artix 7-35T:
+### 1. Cmod Artix 7-35T:
 ![cmod_a7](https://user-images.githubusercontent.com/79912650/193458455-6ed313b3-190f-4531-bcfa-35cff91bb603.jpg)
 
-2. ### QSPI SST26VF080A Flash module:
+### 2. QSPI SST26VF080A Flash module:
 
 
-3. ### USB-TTL module:
+### 3. USB-TTL module:
 ![usb-ttl](https://user-images.githubusercontent.com/79912650/201466506-2fa9b794-09ef-4e94-9dda-6646e44e70cb.jpg)
 
-4. ### Analog Discovery kit (optional for debugging):
+### 4. Analog Discovery kit (optional for debugging):
 ![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
 
-5. ### Jumper wires for connecting:
+### 5. Jumper wires for connecting:
 ![1](https://user-images.githubusercontent.com/79912650/201468548-0b3114d9-13af-4b55-bf54-76b0bf3754de.jpg)
 
 
@@ -40,30 +40,30 @@ After validating the management SoC alone, we integrated the housekeeping with t
 The housekeeping contains a "front door" SPI interface connected to the padframe through GPIO pins 1 to 4, and a "back door" wishbone interface connected to the management SoC. The test that is provided in this repo is to read the manufacturer ID register using the housekeeping SPI interface. Manufacturer ID is a fixed ID number hardcoded in the Caravel chip and has a value of 0x456.
 
 ## Software tools used in FPGA validation for the management SoC with the housekeeping:
-1. ### Xilinx Vivado ML Edition - 2022.2 for synthesizing, implementing, and generating the bit stream of the RTL design:
-![vivado](https://user-images.githubusercontent.com/79912650/201467757-2e178d5e-8624-44ed-8a54-75b6125f6610.jpg)
+### 1. Xilinx Vivado for synthesizing, implementing, and generating the bit stream of the RTL design:
+![Xilinx_image](https://user-images.githubusercontent.com/79912650/201468754-9fc805a1-e5a4-401c-94af-5e3fe488ef16.jpg)
 
-2. ### Digilent Adept for programming the FPGA with the bit file:
+### 2. Digilent Adept for programming the FPGA with the bit file:
 ![image (1)](https://user-images.githubusercontent.com/79912650/201468028-df1686cf-06f7-45bb-8d2d-2987a8f261fd.png)
 
-3. ### Thonny Python IDE which ease programming the Raspberry Pi Pico with the micropython code:
+### 3. Thonny Python IDE which ease programming the Raspberry Pi Pico with the micropython code:
 ![Thonny_logo](https://user-images.githubusercontent.com/79912650/201468053-660b531c-7143-44c5-ac6a-1804a08632aa.png)
 
-4. ### Digilent Waveforms for using the analog discovery kit logic analyzer:
+### 4. Digilent Waveforms for using the analog discovery kit logic analyzer:
 ![image](https://user-images.githubusercontent.com/79912650/201467981-e6647c4f-5c78-41ef-a074-34cb006c1880.png)
 
 
 ## Hardware tools used in FPGA validation for the management SoC with the housekeeping:
-1. ### Cmod Artix 7-35T:
+### 1. Cmod Artix 7-35T:
 ![cmod_a7](https://user-images.githubusercontent.com/79912650/193458455-6ed313b3-190f-4531-bcfa-35cff91bb603.jpg)
 
-2. ### Raspberry Pi Pico: 
-![pico](https://user-images.githubusercontent.com/79912650/201466715-b76a8ad2-03c6-4401-b936-da8029c4830c.jpg)
+### 2. Raspberry Pi Pico: 
+![rpi_pico](https://user-images.githubusercontent.com/79912650/201468712-c5714cd7-52a6-4672-bab0-13bfda7032e1.jpg)
 
-3. ### Analog Discovery kit (optional for debugging):
+### 3. Analog Discovery kit (optional for debugging):
 ![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
 
-4. ### Jumper wires for connecting:
+### 4. Jumper wires for connecting:
 ![1](https://user-images.githubusercontent.com/79912650/201468548-0b3114d9-13af-4b55-bf54-76b0bf3754de.jpg)
 
 ## Steps of FPGA validation for the management SoC with the housekeeping (reading the manufacturer ID test):
