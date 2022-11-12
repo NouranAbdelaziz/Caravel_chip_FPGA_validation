@@ -20,10 +20,11 @@ In order for the management SoC to read the program from the flash, the flash ne
 ![usb-ttl](https://user-images.githubusercontent.com/79912650/201466506-2fa9b794-09ef-4e94-9dda-6646e44e70cb.jpg)
 
 4. ### Analog Discovery kit (optional for debugging):
-![analog-discovery-0](https://user-images.githubusercontent.com/79912650/201466480-52c9c796-93fd-4cdf-9c29-f1ebe37e7560.png)
+![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
 
 5. ### Jumper wires for connecting:
-![wires](https://user-images.githubusercontent.com/79912650/201466532-ef57a7f3-a770-47af-bb6a-6dba0795a568.jpg)
+![A_few_Jumper_Wires](https://user-images.githubusercontent.com/79912650/201468438-daaebb07-2806-436a-ad89-5fe2a28dcb52.jpg)
+
 
 ## Steps of FPGA validation for the management SoC (gpio toggling test):
 
@@ -60,10 +61,10 @@ The housekeeping contains a "front door" SPI interface connected to the padframe
 ![pico](https://user-images.githubusercontent.com/79912650/201466715-b76a8ad2-03c6-4401-b936-da8029c4830c.jpg)
 
 3. ### Analog Discovery kit (optional for debugging):
-![analog-discovery-0](https://user-images.githubusercontent.com/79912650/201466480-52c9c796-93fd-4cdf-9c29-f1ebe37e7560.png)
+![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
 
 4. ### Jumper wires for connecting:
-![wires](https://user-images.githubusercontent.com/79912650/201466532-ef57a7f3-a770-47af-bb6a-6dba0795a568.jpg)
+![A_few_Jumper_Wires](https://user-images.githubusercontent.com/79912650/201468438-daaebb07-2806-436a-ad89-5fe2a28dcb52.jpg)
 
 ## Steps of FPGA validation for the management SoC with the housekeeping (reading the manufacturer ID test):
 
