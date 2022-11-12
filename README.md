@@ -11,7 +11,8 @@ In order for the management SoC to read the program from the flash, the flash ne
 ## Tools used in FPGA validation for the management SoC:
 
 ### 1. Cmod Artix 7-35T:
-![27383-057711df4f3611](https://user-images.githubusercontent.com/79912650/201470069-cd1575f4-4dc9-41f4-8fc2-d0dfb74000bb.jpg)
+![Cmod_A7-obl](https://user-images.githubusercontent.com/79912650/201470157-89d5a9c8-5a3e-4961-8837-c0be7c9ac455.jpg)
+
 
 ### 2. QSPI SST26VF080A Flash module:
 
@@ -55,7 +56,7 @@ The housekeeping contains a "front door" SPI interface connected to the padframe
 
 ## Hardware tools used in FPGA validation for the management SoC with the housekeeping:
 ### 1. Cmod Artix 7-35T:
-![27383-057711df4f3611](https://user-images.githubusercontent.com/79912650/201470069-cd1575f4-4dc9-41f4-8fc2-d0dfb74000bb.jpg)
+![Cmod_A7-obl](https://user-images.githubusercontent.com/79912650/201470157-89d5a9c8-5a3e-4961-8837-c0be7c9ac455.jpg)
 
 ### 2. Raspberry Pi Pico: 
 ![rpi_pico](https://user-images.githubusercontent.com/79912650/201468712-c5714cd7-52a6-4672-bab0-13bfda7032e1.jpg)
