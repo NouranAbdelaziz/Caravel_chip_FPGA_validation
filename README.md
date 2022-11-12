@@ -38,7 +38,7 @@ In order for the management SoC to read the program from the flash, the flash ne
 # Mangement SoC with the housekeeping FPGA validation:
 
 After validating the management SoC alone, we integrated the housekeeping with the management SoC in an RTL design. The housekeeping contains the housekeeping SPI with enables the Caravel chip to communicate with management SoC through an SPI interface. It can write and read several registers and eventually configure gpio pins. 
-The housekeeping contains a "front door" SPI interface connected to the padframe through GPIO pins 1 to 4, and a "back door" wishbone interface connected to the management SoC. The test that is provided in this repo is to read the manufacturer ID register using the housekeeping SPI interface. Manufacturer ID is a fixed ID number hardcoded in the Caravel chip and has a value of 0x456.
+The housekeeping contains a "front door" SPI interface connected to the padframe through GPIO pins 1 to 4, and a "back door" wishbone interface connected to the management SoC. The test that is provided in this repo is to read the manufacturer ID register using the housekeeping SPI interface. Manufacturer ID is a fixed ID number hardcoded in the Caravel chip and has a value of 0x456. In order to read or write to housekeeping SPI slave, we need a master which will talk to the slave. The master used here is the SPI peripheral of a  Raspberry Pi Pico microcontroller. 
 
 ## Software tools used in FPGA validation for the management SoC with the housekeeping:
 ### 1. Xilinx Vivado for synthesizing, implementing, and generating the bit stream of the RTL design:
@@ -69,4 +69,10 @@ The housekeeping contains a "front door" SPI interface connected to the padframe
 
 ## Steps of FPGA validation for the management SoC with the housekeeping (reading the manufacturer ID test):
 
-1. 
+1. Program the FPGA with the design of management SoC and housekeeping (you can use the bit file [here](https://github.com/NouranAbdelaziz/Caravel_chip_FPGA_validation/blob/main/mgmt_SoC_with_HK_FPGA_validation/bit_file/mgmt_soc_hk_38.bit) or use the source code provided in order to synthesize, implement, and generate the bitstream. 
+2. Program the Raspberry Pi Pico microcontroller with the micropython script provided [here](https://github.com/NouranAbdelaziz/Caravel_chip_FPGA_validation/blob/main/mgmt_SoC_with_HK_FPGA_validation/Micropython%20script%20for%20pico/spi_pico.py). This script simply sends first 0x40 which is the command used for the housekeeping SPI to do continuous read until the csb signal is raised high. You can read about the different commands for the housekeeping SPI [here](https://caravel-harness.readthedocs.io/en/latest/housekeeping-spi.html). Then it sends 0x01 which is the address of the register we want to read (manufacturer ID register). You can program the pico microcontroller using Thonny IDE as follows:
+3. After that, run the python program using this button:
+4. You can connect the sclk, csb, and sdi signals to the analog discovery kit and check it in the waveform viewer to make sure that the SPI master is sending the right commands to the housekeeping SPI. This should be the output of the waveform:
+![27383-057711df4f3611](https://user-images.githubusercontent.com/79912650/201471412-8c6db856-aec4-4c1a-813e-daac3e528647.jpg)
+5. Check the reply of the housekeeping SPI in the sdo signal, it should reply with 0x456 which is the value of the manufacturer ID register. It should appear in the waveform and will be read in the Thonny IDE. 
+ 
