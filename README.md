@@ -23,7 +23,7 @@ In order for the management SoC to read the program from the flash, the flash ne
 ![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
 
 5. ### Jumper wires for connecting:
-![A_few_Jumper_Wires](https://user-images.githubusercontent.com/79912650/201468438-daaebb07-2806-436a-ad89-5fe2a28dcb52.jpg)
+![1](https://user-images.githubusercontent.com/79912650/201468548-0b3114d9-13af-4b55-bf54-76b0bf3754de.jpg)
 
 
 ## Steps of FPGA validation for the management SoC (gpio toggling test):
@@ -64,7 +64,7 @@ The housekeeping contains a "front door" SPI interface connected to the padframe
 ![analog-discovery-0 (1)](https://user-images.githubusercontent.com/79912650/201468477-727fb454-8341-44da-90cf-95c8f2494a9b.png)
 
 4. ### Jumper wires for connecting:
-![A_few_Jumper_Wires](https://user-images.githubusercontent.com/79912650/201468438-daaebb07-2806-436a-ad89-5fe2a28dcb52.jpg)
+![1](https://user-images.githubusercontent.com/79912650/201468548-0b3114d9-13af-4b55-bf54-76b0bf3754de.jpg)
 
 ## Steps of FPGA validation for the management SoC with the housekeeping (reading the manufacturer ID test):
 
