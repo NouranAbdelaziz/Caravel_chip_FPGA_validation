@@ -60,7 +60,7 @@ The housekeeping contains a "front door" SPI interface connected to the padframe
 ![image](https://user-images.githubusercontent.com/79912650/201512156-5ee4364c-4a5b-42d0-a9fb-ad253a387386.png)
 
 6. You can connect the sclk, csb, and sdi signals to the analog discovery kit and check it in the waveform viewer to make sure that the SPI master is sending the right commands to the housekeeping SPI. This should be the output of the waveform (make sure that the rate is at least 10 MHz):
-![image](https://user-images.githubusercontent.com/79912650/201512255-947a8caf-61f9-46d7-93d4-9feb4ff12bea.png)
+![image](https://user-images.githubusercontent.com/79912650/201512292-12c8d2a3-4d33-43d6-b82e-c463827c5ffd.png)
 
 8. Check the reply of the housekeeping SPI in the sdo signal, it should reply with 0x456 which is the value of the manufacturer ID register. It should appear in the waveform and will be read in the Thonny IDE. 
  
