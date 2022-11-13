@@ -54,7 +54,13 @@ The housekeeping contains a "front door" SPI interface connected to the padframe
 
 1. Program the FPGA with the design of management SoC and housekeeping (you can use the bit file [here](https://github.com/NouranAbdelaziz/Caravel_chip_FPGA_validation/blob/main/mgmt_SoC_with_HK_FPGA_validation/bit_file/mgmt_soc_hk_38.bit) or use the source code provided in order to synthesize, implement, and generate the bitstream. 
 2. Program the Raspberry Pi Pico microcontroller with the micropython script provided [here](https://github.com/NouranAbdelaziz/Caravel_chip_FPGA_validation/blob/main/mgmt_SoC_with_HK_FPGA_validation/Micropython%20script%20for%20pico/spi_pico.py). This script simply sends first 0x40 which is the command used for the housekeeping SPI to do continuous read until the csb signal is raised high. You can read about the different commands for the housekeeping SPI [here](https://caravel-harness.readthedocs.io/en/latest/housekeeping-spi.html). Then it sends 0x01 which is the address of the register we want to read (manufacturer ID register). You can program the pico microcontroller using Thonny IDE as follows:
-3. After that, run the python program using this button:
-4. You can connect the sclk, csb, and sdi signals to the analog discovery kit and check it in the waveform viewer to make sure that the SPI master is sending the right commands to the housekeeping SPI. This should be the output of the waveform:
-5. Check the reply of the housekeeping SPI in the sdo signal, it should reply with 0x456 which is the value of the manufacturer ID register. It should appear in the waveform and will be read in the Thonny IDE. 
+![image](https://user-images.githubusercontent.com/79912650/201512132-4d97947d-d9eb-4adb-aba9-6e3020e1f841.png)
+
+4. After that, run the python program using this button:
+![image](https://user-images.githubusercontent.com/79912650/201512156-5ee4364c-4a5b-42d0-a9fb-ad253a387386.png)
+
+6. You can connect the sclk, csb, and sdi signals to the analog discovery kit and check it in the waveform viewer to make sure that the SPI master is sending the right commands to the housekeeping SPI. This should be the output of the waveform (make sure that the rate is at least 10 MHz):
+![image](https://user-images.githubusercontent.com/79912650/201512255-947a8caf-61f9-46d7-93d4-9feb4ff12bea.png)
+
+8. Check the reply of the housekeeping SPI in the sdo signal, it should reply with 0x456 which is the value of the manufacturer ID register. It should appear in the waveform and will be read in the Thonny IDE. 
  
